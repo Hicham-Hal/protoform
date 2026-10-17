@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+/* Light / dark design tokens */
+:root { --bg:#FBFAFF; --surf:#fff; --ink:#1B1340; --mut:#5d5883; --line:#e2dff5; --acc:#3D5AFE; --acc2:#FF6B8B; --mint:#27D3A2; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#120E2B; --surf:#1c1740; --ink:#f2f0ff; --mut:#a9a4d3; --line:#2e2860; --acc:#7b8dff; }
+}
+
+/* Expose tokens as Tailwind colors: bg-bg, text-ink, border-line, bg-acc ... */
+@theme inline {
+  --color-bg: var(--bg); --color-surf: var(--surf); --color-ink: var(--ink); --color-mut: var(--mut);
+  --color-line: var(--line); --color-acc: var(--acc); --color-acc2: var(--acc2); --color-mint: var(--mint);
+  --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-sans: 'Instrument Sans', system-ui, sans-serif;
+}
+
+/* Custom animations: animate-float, animate-tilt ... */
+@theme {
+  --animate-float: float 8s ease-in-out infinite;
+  --animate-tilt: tilt 7s ease-in-out infinite;
+  --animate-scroll: scroll 40s linear infinite;
+  --animate-typing: typing 1.4s steps(22) .2s forwards, blink .8s step-end 3 1.6s;
+  --animate-page: page .5s;
+  --animate-draw: draw 1s .4s forwards;
+  @keyframes float { 50% { transform: translate(20px,-24px) scale(1.08); } }
+  @keyframes tilt { 50% { transform: rotate(-3deg) translateY(-8px); } }
+  @keyframes scroll { to { transform: translateX(-50%); } }
+  @keyframes typing { to { width: 100%; } }
+  @keyframes blink { 50% { border-color: transparent; } }
+  @keyframes page { from { opacity: 0; transform: translateY(10px); } }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+}
+
+@utility wrap {
+  max-width: 1100px; margin-inline: auto;
+  padding-inline: max(1.25rem, env(safe-area-inset-left), env(safe-area-inset-right));
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--font-sans); font-size: 17px; line-height: 1.6; overflow-x: hidden; padding-bottom: env(safe-area-inset-bottom); }
+  h1, h2, h3 { font-family: var(--font-display); line-height: 1.05; letter-spacing: -.02em; }
+  :focus-visible { outline: 3px solid var(--acc); outline-offset: 3px; }
+}
+@layer components {
+  .btn { @apply inline-block cursor-pointer rounded-2xl bg-acc px-6 py-3.5 text-center font-semibold text-white transition hover:-translate-y-0.5 hover:shadow-[0_10px_24px_-8px_var(--acc)]; }
+  .btn-ghost { @apply bg-transparent text-ink shadow-[inset_0_0_0_2px_var(--line)] hover:shadow-[inset_0_0_0_2px_var(--line)]; }
+  .field { @apply rounded-xl border-[1.5px] border-line bg-bg px-3.5 py-3 text-ink; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
