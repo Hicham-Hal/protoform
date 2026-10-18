@@ -11,7 +11,7 @@ export const STEPS = [
 export const QUOTES = [
   ['Our jury asked if it was a real app. It was a prototype.', 'Sara, Software Eng.'],
   ['They turned my messy notes into a flow I could actually explain.', 'Karim, HCI Master’s'],
-  ['Delivered two days early and I got the top mark.', 'Lina, Design Student'],
+  ['ماشاء الله، خدمة تووب', 'Lina, Law student'],
   ['Clear, fast and fair price for a student budget.', 'Yacine, Business School'],
   ['My startup pitch finally looked like a real product.', 'Meriem, Entrepreneurship'],
 ]
@@ -31,6 +31,6 @@ export const VALUES = [
 ]
 export const TEAM = [
   ['Nadia', 'Lead designer', '#3D5AFE', 'Turns rough ideas into clean, usable flows.'],
-  ['Omar', 'Front-end developer', '#FF6B8B', 'Makes prototypes feel fast and real.'],
+  ['Hicham', 'Software engineer', '#FF6B8B', 'Makes prototypes feel fast and real.'],
   ['Rania', 'Project manager', '#27D3A2', 'Keeps every deadline and every client calm.'],
 ]

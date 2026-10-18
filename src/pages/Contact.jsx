@@ -43,7 +43,7 @@ export default function Contact() {
           <h1 className="text-[clamp(2.2rem,5vw,3.6rem)] font-extrabold">Let's build your prototype.</h1>
           <p className="mt-4 text-mut">Share a few details and we'll send a plan, a timeline and a fixed price within one working day.</p>
           <div className="mt-7 grid gap-3">
-            {[['Email', 'halouanehicham@gmail.com'], ['Telegram, whatsapp', '+213 7 76118846'], ['Hours', 'Sun–Thu, 6:00–21:00'], ['Reply time', 'Under 24 hours']].map(([k, v]) => (
+            {[['Email', 'halouanehicham@gmail.com'], ['Telegram, whatsapp', '+213 7 76118846'], ['Hours', '6:00–21:00'], ['Reply time', 'Under 24 hours']].map(([k, v]) => (
               <div key={k} className="rounded-2xl border border-line bg-surf px-[18px] py-3.5"><b>{k}</b><br />{v}</div>
             ))}
           </div>
@@ -84,7 +84,7 @@ export default function Contact() {
                 <textarea className="field" rows="4" value={form.idea} onChange={set('idea')} placeholder="Who is it for and what should it do?" /></label>
 
               <button className="btn disabled:cursor-wait disabled:opacity-60" type="submit" disabled={loading}>
-                {loading ? 'Sending...' : 'Send my request'}  Send my request
+                {loading ? 'Sending...' : 'Send my request'}
               </button>
               <p role="alert" className="text-sm text-acc2">{error}</p>
             </div>
